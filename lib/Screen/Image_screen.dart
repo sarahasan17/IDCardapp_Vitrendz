@@ -63,7 +63,7 @@ class _ImageScreenState extends State<ImageScreen> {
                   text: "Done",
                   onPress: () {
                     detail.write("key10", FileImage(imagefile!).file.path);
-                    Get.offAll("/detailscreen");
+                    Get.toNamed("/");
                   },
                 ),
               ],
