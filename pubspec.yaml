@@ -1,0 +1,33 @@
+name: id_card_vitrendz
+description: A new Flutter project.
+
+environment:
+  sdk: ">=2.17.5 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+  get: ^4.6.5
+  get_storage:
+  image_picker: ^0.8.4+4
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+
+  uses-material-design: true
+  assets:
+    - assets/images/
+  fonts:
+    - family: Lora
+      fonts:
+        - asset: assets/Fonts/Lora-VariableFont_wght.ttf
+    - family: Lora2
+      fonts:
+        - asset: assets/Fonts/Lora-Italic-VariableFont_wght.ttf
