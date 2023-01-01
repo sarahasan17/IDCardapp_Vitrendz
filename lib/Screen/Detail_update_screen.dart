@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:id_card_vitrendz/Constants/Color_constant.dart';
 import 'package:id_card_vitrendz/Constants/get_constant.dart';
@@ -6,9 +5,11 @@ import 'package:id_card_vitrendz/Constants/style_constant.dart';
 import 'package:get/get.dart';
 import 'package:id_card_vitrendz/Screen/IDCard_screen.dart';
 import 'package:id_card_vitrendz/Constants/variable.dart';
+
 class DetailUpdateScreen extends StatefulWidget {
+  const DetailUpdateScreen({Key? key}) : super(key: key);
+
   @override
-  static const String routname = "/detailscreen";
   State<DetailUpdateScreen> createState() => _DetailUpdateScreenState();
 }
 
@@ -150,7 +151,7 @@ class _DetailUpdateScreenState extends State<DetailUpdateScreen> {
                   children: [
                     Expanded(
                       child: Container(
-                        margin: EdgeInsets.only(left: 20),
+                        margin: const EdgeInsets.only(left: 20),
                         alignment: Alignment.topLeft,
                         child: DropdownButton(
                           style: style_3,

@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:id_card_vitrendz/Constants/Color_constant.dart';
 import 'package:id_card_vitrendz/Constants/get_constant.dart';
 import 'package:id_card_vitrendz/Constants/style_constant.dart';
+import 'package:id_card_vitrendz/Db/database.dart';
 import 'package:id_card_vitrendz/Widget/card_data.dart';
 
 class IDCardScreen extends StatelessWidget {
@@ -35,7 +36,7 @@ class IDCardScreen extends StatelessWidget {
                   const SizedBox(
                     height: 10,
                   ),
-                  if (detail.read("key10") == null)
+                  if (mybox.get(1) == null)
                     Container(
                       child: Image.network(
                         'https://media.sproutsocial.com/uploads/2022/06/profile-picture.jpeg',
@@ -46,8 +47,7 @@ class IDCardScreen extends StatelessWidget {
                     Container(
                       height: 300,
                       width: 200,
-                      child: Image.file(File(detail.read("key10")),
-                          fit: BoxFit.fill),
+                      child: Image.file(File(mybox.get(1)), fit: BoxFit.fill),
                     ),
                   const SizedBox(
                     height: 20,

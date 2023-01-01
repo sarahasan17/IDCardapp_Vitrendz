@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-
 import '../Constants/Color_constant.dart';
 
 class Card_data extends StatelessWidget {
   Widget? child;
-  Card_data({required this.child});
+  Card_data({Key? key, required this.child}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(

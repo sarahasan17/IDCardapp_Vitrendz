@@ -2,10 +2,9 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:id_card_vitrendz/Constants/Color_constant.dart';
 import 'package:id_card_vitrendz/Constants/get_constant.dart';
-import 'package:id_card_vitrendz/Constants/style_constant.dart';
+import 'package:id_card_vitrendz/Db/database.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:get/get.dart';
-
 import '../Widget/image_access_button.dart';
 
 class ImageScreen extends StatefulWidget {
@@ -16,9 +15,11 @@ class ImageScreen extends StatefulWidget {
 }
 
 class _ImageScreenState extends State<ImageScreen> {
-  static const String routname = "/imagescreen";
   File? imagefile;
   File? key10;
+  void writeData() {}
+  void readData() {}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,6 +66,7 @@ class _ImageScreenState extends State<ImageScreen> {
                 ImageAccessButton(
                   text: "Done",
                   onPress: () {
+                    mybox.put(1, FileImage(imagefile!).file.path);
                     detail.write("key10", FileImage(imagefile!).file.path);
                     Get.toNamed("/");
                   },
