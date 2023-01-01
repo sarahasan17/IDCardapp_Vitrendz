@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:id_card_vitrendz/Constants/Color_constant.dart';
 import 'package:id_card_vitrendz/Constants/get_constant.dart';
@@ -5,6 +6,7 @@ import 'package:id_card_vitrendz/Constants/style_constant.dart';
 import 'package:get/get.dart';
 import 'package:id_card_vitrendz/Screen/IDCard_screen.dart';
 import 'package:id_card_vitrendz/Constants/variable.dart';
+import 'package:image_picker/image_picker.dart';
 
 class DetailUpdateScreen extends StatefulWidget {
   const DetailUpdateScreen({Key? key}) : super(key: key);
@@ -21,6 +23,7 @@ class _DetailUpdateScreenState extends State<DetailUpdateScreen> {
   final TextEditingController _address = TextEditingController();
   final TextEditingController _contact_no = TextEditingController();
   final TextEditingController _yr_grad = TextEditingController();
+  File? imagefile;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,21 +42,34 @@ class _DetailUpdateScreenState extends State<DetailUpdateScreen> {
             padding: const EdgeInsets.only(top: 50, right: 10, left: 20),
             child: Column(
               children: [
-                GestureDetector(
-                  onTap: () => Get.toNamed("/imagescreen"),
-                  child: Container(
-                    margin: const EdgeInsets.only(bottom: 15.0),
-                    child: CircleAvatar(
+                if (imagefile == null)
+                  GestureDetector(
+                    onTap: () => Get.toNamed("/imagescreen"),
+                    child: Container(
+                      margin: const EdgeInsets.only(bottom: 15.0),
+                      child: CircleAvatar(
+                          backgroundColor: appbarcolor,
+                          foregroundColor: color_text,
+                          radius: 60,
+                          child: Icon(
+                            Icons.camera_enhance_outlined,
+                            color: color_text,
+                            size: 40,
+                          )),
+                    ),
+                  )
+                else
+                  GestureDetector(
+                    onTap: () => Get.toNamed("/imagescreen"),
+                    child: Container(
+                      margin: const EdgeInsets.only(bottom: 15.0),
+                      child: CircleAvatar(
+                        backgroundImage: FileImage(imagefile!),
                         backgroundColor: appbarcolor,
-                        foregroundColor: color_text,
                         radius: 60,
-                        child: Icon(
-                          Icons.camera_enhance_outlined,
-                          color: color_text,
-                          size: 40,
-                        )),
+                      ),
+                    ),
                   ),
-                ),
                 Row(
                   children: [
                     Expanded(
@@ -351,5 +367,16 @@ class _DetailUpdateScreenState extends State<DetailUpdateScreen> {
         ]),
       ),
     );
+  }
+
+  Future Get_image({required ImageSource imagesource}) async {
+    try {
+      final file = await ImagePicker().pickImage(source: imagesource);
+      setState(() {
+        imagefile = File(file!.path);
+      });
+    } catch (e) {
+      print(e);
+    }
   }
 }

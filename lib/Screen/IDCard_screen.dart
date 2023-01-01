@@ -139,6 +139,7 @@ class IDCardScreen extends StatelessWidget {
                   height: 5,
                 ),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Column(
                       children: [
@@ -147,12 +148,11 @@ class IDCardScreen extends StatelessWidget {
                           height: 42,
                         ),
                         Text('Issuing Authority',
-                            style:
-                                style_2.copyWith(fontWeight: FontWeight.bold)),
+                            style: style_3.copyWith(
+                              fontFamily: 'Lora2',
+                              fontWeight: FontWeight.w500,
+                            )),
                       ],
-                    ),
-                    const SizedBox(
-                      width: 15,
                     ),
                     Column(
                       children: [
@@ -161,8 +161,9 @@ class IDCardScreen extends StatelessWidget {
                           height: 42,
                         ),
                         Text('Holder\'s Signature',
-                            style:
-                                style_2.copyWith(fontWeight: FontWeight.bold)),
+                            style: style_3.copyWith(
+                                fontWeight: FontWeight.w500,
+                                fontFamily: 'Lora2')),
                       ],
                     )
                   ],
