@@ -5,9 +5,7 @@ import 'package:id_card_vitrendz/Constants/get_constant.dart';
 import 'package:id_card_vitrendz/Constants/style_constant.dart';
 import 'package:get/get.dart';
 import 'package:id_card_vitrendz/Screen/IDCard_screen.dart';
-import 'package:id_card_vitrendz/Screen/Image_screen.dart';
-import 'package:image_picker/image_picker.dart';
-
+import 'package:id_card_vitrendz/Constants/variable.dart';
 class DetailUpdateScreen extends StatefulWidget {
   @override
   static const String routname = "/detailscreen";
@@ -15,17 +13,8 @@ class DetailUpdateScreen extends StatefulWidget {
 }
 
 class _DetailUpdateScreenState extends State<DetailUpdateScreen> {
-  var button1 = [
-    'HOSTELER',
-    'DAY BOARDER',
-  ];
-  var button2 = ["VELLORE", "CHENNAI", "AP-AMRAVATI", "BHOPAL"];
-  String? contact_no;
-  String resident_status = "HOSTELER";
-  String campus = "VELLORE";
   final TextEditingController _name = TextEditingController();
   final TextEditingController _regno = TextEditingController();
-  final TextEditingController _campus = TextEditingController();
   final TextEditingController _app_no = TextEditingController();
   final TextEditingController _blood_group = TextEditingController();
   final TextEditingController _address = TextEditingController();
@@ -35,7 +24,7 @@ class _DetailUpdateScreenState extends State<DetailUpdateScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(
+        title: const Center(
           child: Text(
             'My IDCard',
             style: TextStyle(color: Colors.white),
@@ -50,7 +39,7 @@ class _DetailUpdateScreenState extends State<DetailUpdateScreen> {
             child: Column(
               children: [
                 GestureDetector(
-                  onTap: () => Get.offAll(ImageScreen()),
+                  onTap: () => Get.toNamed("/imagescreen"),
                   child: Container(
                     margin: const EdgeInsets.only(bottom: 15.0),
                     child: CircleAvatar(
@@ -316,7 +305,7 @@ class _DetailUpdateScreenState extends State<DetailUpdateScreen> {
                         ))
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10.0,
                 ),
                 Container(

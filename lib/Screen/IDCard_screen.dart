@@ -7,30 +7,13 @@ import 'package:id_card_vitrendz/Constants/style_constant.dart';
 import 'package:id_card_vitrendz/Widget/card_data.dart';
 
 class IDCardScreen extends StatelessWidget {
-  /*String name = '';
-  String regno = '';
-  String campus = '';
-  String resident_status = '';
-  String app_no = '';
-  String blood_group = '';
-  String address = '';
-  String contact_no = '';
-  String yr_grad = '';
-  IDCardScreen(
-      {this.name = "Detail not found",
-      this.regno = "Detail not found",
-      this.campus = "Detail not found",
-      this.resident_status = "Detail not found",
-      this.app_no = "Detail not found",
-      this.blood_group = "Detail not found",
-      this.address = "Detail not found",
-      this.contact_no = "Detail not found",
-      this.yr_grad = "Detail not found"});*/
+  const IDCardScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(
+        title: const Center(
           child: Text(
             'My IDCard',
             style: TextStyle(color: Colors.white),
@@ -70,9 +53,7 @@ class IDCardScreen extends StatelessWidget {
                     height: 20,
                   ),
                   Text(
-                    detail.read("key") != null
-                        ? detail.read("key")
-                        : "Detail not available",
+                    detail.read("key") ?? "Detail not available",
                     style: style_1.copyWith(fontSize: 28),
                   ),
                   const SizedBox(
@@ -98,7 +79,7 @@ class IDCardScreen extends StatelessWidget {
           ),
           Card_data(
               child: Container(
-            padding: EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(10.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -170,7 +151,7 @@ class IDCardScreen extends StatelessWidget {
                                 style_2.copyWith(fontWeight: FontWeight.bold)),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 15,
                     ),
                     Column(

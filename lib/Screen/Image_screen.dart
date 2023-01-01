@@ -6,6 +6,8 @@ import 'package:id_card_vitrendz/Constants/style_constant.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:get/get.dart';
 
+import '../Widget/image_access_button.dart';
+
 class ImageScreen extends StatefulWidget {
   const ImageScreen({Key? key}) : super(key: key);
 
@@ -14,13 +16,14 @@ class ImageScreen extends StatefulWidget {
 }
 
 class _ImageScreenState extends State<ImageScreen> {
+  static const String routname = "/imagescreen";
   File? imagefile;
   File? key10;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(
+        title: const Center(
           child: Text(
             'My IDCard',
             style: TextStyle(color: Colors.white),
@@ -83,32 +86,5 @@ class _ImageScreenState extends State<ImageScreen> {
     } catch (e) {
       print(e);
     }
-  }
-}
-
-class ImageAccessButton extends StatelessWidget {
-  String text;
-  VoidCallback onPress;
-  ImageAccessButton({required this.text, required this.onPress});
-  @override
-  Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: onPress,
-      child: Container(
-        width: double.maxFinite,
-        margin: EdgeInsets.only(top: 15, right: 15, left: 15),
-        padding: EdgeInsets.all(18.0),
-        decoration: BoxDecoration(
-          color: color_text,
-          borderRadius: BorderRadius.circular(15.0),
-        ),
-        child: Center(
-          child: Text(
-            text,
-            style: style_3.copyWith(color: color_background, fontSize: 20),
-          ),
-        ),
-      ),
-    );
   }
 }
